@@ -1,11 +1,15 @@
 import Phaser from "phaser";
-import logoImg from "./assets/logo.png";
+import logoImg from "../assets/logo.png";
 
 const config = {
   type: Phaser.AUTO,
-  parent: "phaser-example",
-  width: 800,
-  height: 600,
+  parent: 'Civics: An American Musical',
+  width: 1920,
+  height: 1080,
+  scale: {
+    mode: Phaser.Scale.FIT,
+    autoCenter: Phaser.Scale.CENTER_BOTH,
+},
   scene: {
     preload: preload,
     create: create
