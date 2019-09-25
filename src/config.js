@@ -1,8 +1,8 @@
 import Phaser from 'phaser'
 import TitleScene from './title'
 import IntroScene from './intro'
+import TopicSelectionScene from './topic-selection'
 import GameScene from './game'
-import RoundrRctanglePlugin from '../plugins/roundrectangle-plugin.js';
 
 const config = {
   type: Phaser.AUTO,
@@ -20,14 +20,7 @@ const config = {
         debug: false
         }
   },
-  scene: [TitleScene, IntroScene, GameScene],
-  plugins: {
-        global: [{
-            key: 'rexRoundrRctangle',
-            plugin: RoundrRctanglePlugin,
-            start: true
-        }]
-    }
+  scene: [TitleScene, IntroScene,TopicSelectionScene, GameScene]
 };
 
 export { config }

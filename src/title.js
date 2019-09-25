@@ -8,13 +8,10 @@ class TitleScene extends Scene {
            color: '#ffffff',
            align: 'center',
            backgroundColor: '#003366',
-           shadow: {
-               color: '#010032',
-               fill: true,
-               offsetX: 2,
-               offsetY: 2,
-               blur: 8
-           }
+           padding: {
+            x: 20,
+            y: 20
+        }
          }
     this.style = { font: "bold 100px Arial", fill: "#fff", boundsAlignH: "center", boundsAlignV: "middle" };
   }
@@ -28,7 +25,6 @@ class TitleScene extends Scene {
     this.createStartButton();
     }
   createStartButton(){
-
     const startButton = this.add.text(960, 810, 'Start', this.style1).setOrigin(.5);
     startButton.setInteractive().on('pointerdown', ()=> {
     this.scene.start('intro')
