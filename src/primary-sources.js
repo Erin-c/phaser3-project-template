@@ -1,8 +1,8 @@
 import { Scene } from 'phaser';
 
-class TitleScene extends Scene {
+class PrimarySourcesScene extends Scene {
   constructor(){
-    super('title')
+    super('primary-sources')
     this.style1 = { fontSize: '64px',
            fontFamily: 'Arial',
            color: '#ffffff',
@@ -20,16 +20,16 @@ class TitleScene extends Scene {
   }
   create(){
     const stage = this.add.image(0, 0, 'stage').setOrigin(0, 0)
-    const title = this.add.text(0, 0, 'Civics: An American Musical', this.style);
+    const title = this.add.text(0, 0, 'What are Primary Sources?', this.style);
     Phaser.Display.Align.In.Center(title, stage);
     this.createStartButton();
   }
   createStartButton(){
     const startButton = this.add.text(960, 810, 'Start', this.style1).setOrigin(.5);
     startButton.setInteractive().on('pointerdown', ()=> {
-    this.scene.start('intro')
+    this.scene.start('topic-selection')
     })
    }
 }
 
-export default TitleScene
+export default PrimarySourcesScene

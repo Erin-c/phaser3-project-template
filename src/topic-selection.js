@@ -41,26 +41,24 @@ class TopicSelectionScene extends Scene {
 
     this.topic1 = this.add.text(960, (this.topicDialog.getBottomCenter(top)).y + 40, 'School Desegregation and the Moton High School Walk Out', this.style1).setOrigin(0.5, 0)
     .setInteractive().on('pointerdown', () => {
-      console.log('topic1')});
+      this.scene.start('topic1-intro')});
 
     this.topic2 = this.add.text(960, (this.topic1.getBottomCenter(top)).y + 40, 'National Parks', this.style1).setOrigin(0.5, 0)
     .setInteractive().on('pointerdown', () => {
-      console.log('topic2')});
+      this.scene.start('topic2-intro')});
 
     this.topic3 = this.add.text(960, (this.topic2.getBottomCenter(top)).y + 40, 'FDA', this.style1).setOrigin(0.5, 0)
     .setInteractive().on('pointerdown', () => {
-      console.log('topic3')});
-    //
+      this.scene.start('topic3-intro')});
+
     this.topic4 = this.add.text(960, (this.topic3.getBottomCenter(top)).y + 40, 'Title 9', this.style1).setOrigin(0.5, 0)
     .setInteractive().on('pointerdown', () => {
-      console.log('topic4')});
-    //
+      this.scene.start('topic4-intro')});
+
     this.topic5 = this.add.text(960, (this.topic4.getBottomCenter(top)).y + 40, 'Immigration', this.style1).setOrigin(0.5, 0)
     .setInteractive().on('pointerdown', () => {
-      console.log('topic5')});
-
+      this.scene.start('topic5-intro')});
   }
-
 }
 
   export default TopicSelectionScene
