@@ -1,39 +1,51 @@
 import { Scene } from 'phaser';
 
+var nextScene = '';
+
 class Topic5Scene extends Scene {
   constructor(){
     super('topic5-intro')
-    this.style1 = { fontSize: '64px',
-           fontFamily: 'Arial',
-           color: '#ffffff',
-           align: 'center',
-           padding: {
-            x: 20,
-            y: 20
-        }
-      }
   }
+
   preload(){
-    this.load.image('stage', '../../assets/stage.png');
+    this.load.image('stage', '../../assets/backgrounds/stage.png');
+    this.load.html('produce-it', '../../assets/html/produce-it.html');
+    this.load.html('cancel', '../../assets/html/cancel.html');
+    this.load.css('styles', '../../assets/styles/main.css');
   }
+
   create(){
+    nextScene = '';
     const stage = this.add.image(0, 0, 'stage').setOrigin(0, 0)
-    const title = this.add.text(0, 0, 'Topic5', this.style1);
+    const title = this.add.dom(0, 0, 'div', null, 'Topic 5').setClassName('title');
     Phaser.Display.Align.In.Center(title, stage);
     this.createCancelButton();
     this.createProduceItButton();
   }
-  createCancelButton(){
-    const cancelButton = this.add.text(500, 810, 'Cancel', this.style1).setOrigin(0, 0)
-    .setOrigin(.5).setInteractive().on('pointerdown', () => {
-      this.scene.start('topic-selection');
-    })
+
+  update(){
+    if (nextScene !== '')
+    {
+      this.scene.start(nextScene)
+    }
   }
+
+  createCancelButton(){
+    const cancelButton =  this.add.dom(500, 810).createFromCache('cancel')
+    .addListener('click')
+    .on('click', function (event) {
+      nextScene = 'topic-selection';
+      this.removeListener('click');
+    });
+  }
+
   createProduceItButton(){
-    const produceItButton = this.add.text(1420, 810, 'Get the show on the road!', this.style1).setOrigin(1, 0)
-    .setOrigin(.5).setInteractive().on('pointerdown', () => {
-      this.scene.start('topic-selection');
-    })
+    const produceItButton =  this.add.dom(1420, 810).createFromCache('produce-it')
+    .addListener('click')
+    .on('click', function (event) {
+      nextScene = 'topic5-intro-animation';
+      this.removeListener('click');
+    });
   }
 }
 
