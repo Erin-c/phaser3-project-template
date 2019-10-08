@@ -1,7 +1,5 @@
 import { Scene } from 'phaser';
 
-var nextScene = '';
-
 class Topic1Scene extends Scene {
   constructor(){
     super('topic1-intro')
@@ -15,7 +13,6 @@ class Topic1Scene extends Scene {
   }
 
   create(){
-    nextScene = '';
     const stage = this.add.image(0, 0, 'stage').setOrigin(0, 0)
     const title = this.add.dom(0, 0, 'div', null, 'Topic 1').setClassName('title');
     Phaser.Display.Align.In.Center(title, stage);
@@ -23,28 +20,19 @@ class Topic1Scene extends Scene {
     this.createProduceItButton();
   }
 
-  update(){
-    if (nextScene !== '')
-    {
-      this.scene.start(nextScene)
-    }
-  }
-
   createCancelButton(){
     const cancelButton =  this.add.dom(500, 810).createFromCache('cancel')
     .addListener('click')
-    .on('click', function (event) {
-      nextScene = 'topic-selection';
-      this.removeListener('click');
+    .on('click', () => {
+      this.scene.start('topic-selection');
     });
   }
 
   createProduceItButton(){
     const produceItButton =  this.add.dom(1420, 810).createFromCache('produce-it')
     .addListener('click')
-    .on('click', function (event) {
-      nextScene = 'topic1-intro-animation';
-      this.removeListener('click');
+    .on('click', () => {
+      this.scene.start('topic1-intro-animation');
     });
   }
 }

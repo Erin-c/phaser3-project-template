@@ -1,62 +1,193 @@
+@font-face {
+  font-family: "Nunito-Bold";
+  src: url("assets/fonts/Nunito-Bold/Nunito-Bold.eot"); /* IE9 Compat Modes */
+  src: url("assets/fonts/Nunito-Bold/Nunito-Bold.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+       url("assets/fonts/Nunito-Bold/Nunito-Bold.otf") format("opentype"), /* Open Type Font */
+       url("assets/fonts/Nunito-Bold/Nunito-Bold.svg") format("svg"), /* Legacy iOS */
+       url("assets/fonts/Nunito-Bold/Nunito-Bold.ttf") format("truetype"), /* Safari, Android, iOS */
+       url("assets/fonts/Nunito-Bold/Nunito-Bold.woff") format("woff"), /* Modern Browsers */
+       url("assets/fonts/Nunito-Bold/Nunito-Bold.woff2") format("woff2"); /* Modern Browsers */
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Nunito-Bold";
+  src: url("assets/fonts/Nunito-Black/Nunito-Black.eot"); /* IE9 Compat Modes */
+  src: url("assets/fonts/Nunito-Black/Nunito-Black.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("assets/fonts/Nunito-Black/Nunito-Black.otf") format("opentype"), /* Open Type Font */
+    url("assets/fonts/Nunito-Black/Nunito-Black.svg") format("svg"), /* Legacy iOS */
+    url("assets/fonts/Nunito-Black/Nunito-Black.ttf") format("truetype"), /* Safari, Android, iOS */
+    url("assets/fonts/Nunito-Black/Nunito-Black.woff") format("woff"), /* Modern Browsers */
+    url("assets/fonts/Nunito-Black/Nunito-Black.woff2") format("woff2"); /* Modern Browsers */
+  font-weight: bold;
+  font-style: bold;
+}
+
+
 :root {
     --color-white: #FFFFFF;
     --color-black: #000000;
-    --color-disabled: #BCBCC9;
+    --color-gray: #BCBCC9;
     --color-headers: #4B4054;
     --color-speech: #FEFF99;
     --color-border: #B27F5C;
     --color-button: #003366;
     --color-button-shadow: #010032;
     --color-shadows: #4B4054;
+    --color-box-shadows: #6B6F75;
     --color-text: #010032;
     --color-melody-text: #FFCCCC;
+    --color-orq: #E6E6E6;
 
-    --font-family-primary:  sans-serif;
+    --font-family-primary: 'Nunito-Bold', sans-serif;
 }
 
-input[type="button"] {
-    font-family: var(--font-family-primary);
-    background: var(--color-button);
-    color: var(--color-white);
-    padding-top: 15px;
-    padding-bottom: 15px;
-    padding-right: 30px;
-    padding-left: 30px;
-    font-size: 48px;
-    border-style: solid;
-    border-color: var(--color-white);
-    border-radius: 50px;
-    border-width: 3px;
-    cursor: pointer;
-    box-shadow: var(--color-button-shadow) 0 10px 0 0;
+/* Button and Speech Styling */
+
+.buttons, .score{
+  font-family: var(--font-family-primary);
+  background: var(--color-button);
+  color: var(--color-white);
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-right: 30px;
+  padding-left: 30px;
+  font-size: 32px;
+  border-style: solid;
+  border-color: var(--color-white);
+  border-radius: 50px;
+  border-width: 4px;
+  cursor: pointer;
+  box-shadow: var(--color-button-shadow) 0 10px 0 0;
 }
 
-.melody-feedback{
-    font-family: var(--font-family-primary);
-    color: var(--color-text);
-    background: var(--color-melody-text);
-    padding: 20px;
-    font-size: 32px;
-    border-style: solid;
-    border-color: var(--color-border);
-    border-radius: 50px;
-    border-width: 3px;
-    box-shadow: var(--color-shadows) 0 5px 0 0;
+input[type="button"]:disabled {
+  cursor: auto;
+  background: var(--color-gray);
 }
 
-.oqr{
-    font-family: var(--font-family-primary);
-    color: var(--color-white);
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-right: 20px;
-    padding-left: 20px;
-    font-size: 32px;
-    border-style: solid;
-    border-color: var(--color-white);
-    border-radius: 50px;
-    border-width: 3px;
-    box-shadow: var(--color-shadows) 0 5px 0 0;
+#feedback{
+  z-index: -1;
+  position: absolute;
+  display:inline-block;
+  font-family: var(--font-family-primary);
+  margin-left: -40px;
+  margin-top:30px;
+  color: var(--color-text);
+  background: var(--color-melody-text);
+  padding: 20px 20px 20px 50px;
+  font-size: 24px;
+  border-style: solid;
+  border-color: var(--color-border);
+  border-radius: 0px 50px 50px 0px;
+  border-width: 4px 4px 4px 0px;
+}
+
+.orq{
+  font-family: var(--font-family-primary);
+  color: var(--color-white);
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 20px;
+  padding-left: 20px;
+  font-size: 24px;
+  border-style: solid;
+  border-color: var(--color-white);
+  border-radius: 50px;
+  border-width: 4px;
+  box-shadow: var(--color-shadows) 0 5px 0 0;
+  position:absolute;
+  display: inline-block;
+  margin: 55px;
+  z-index: 1;
+}
+
+.orq.o{
+  background-color: #013366;
+  margin-left: 953.1875px;
+}
+
+.orq.r{
+  background-color: #03713F;
+  margin-left: 1305.3125px;
+}
+
+.orq.q{
+  background-color: #660F3A;
+  margin-left: 1651.172px;
+}
+
+.container{
+  background-color: var(--color-orq);
+  width: 340px;
+  height: 600px;
+  border-style: solid;
+  border-width: 60px 5px 5px 0px;
+  border-radius: 30px;
+  color: transparent;
+  cursor: pointer;
+  display: inline-block;
+  position: absolute;
+  margin-top: 25px;
+  opacity: .75;
+}
+
+.container.o{
+  border-color: #5D7D9D var(--color-box-shadows) var(--color-box-shadows) transparent;
+  margin-left: 875px;
+}
+
+.container.r{
+  border-color: #5EA484 var(--color-box-shadows) var(--color-box-shadows) transparent;
+  margin-left: 1215px;
+}
+
+.container.q{
+  border-color: #9D6681 var(--color-box-shadows) var(--color-box-shadows) transparent;
+  margin-left: 1555px;
+}
+
+.character-container{
+  margin-top: 800px;
+  text-align: right;
+  margin-right: 250px;
+}
+
+
+/* Text Styling */
+
+#speaker{
+  font-family: var(--font-family-primary);
+  font-size: 24px;
+  background:  var(--color-white);
+  color: var(--color-shadows);
+  padding: 10px;
+  border-radius: 50px;
+  border: 4px solid var(--color-border);
+  position:absolute;
+  left: 1397.5px;
+  top: 805px;
+  z-index: 2;
+  -webkit-transform: translate3d(-50%, -50%, 0);
+  -moz-transform: translate3d(-50%, -50%, 0);
+  transform: translate3d(-50%, -50%, 0);
+  display:auto;
+}
+
+#speaker .name{
+  font-size: 24px;
+  color: var(--color-shadows);
+}
+
+#speaker .separator{
+  font-size: 20px;
+  color: var(--color-gray);
+}
+
+#speaker .role{
+  font-size: 20px;
+  color: var(--color-border);
 }
 
 .title {
@@ -66,19 +197,23 @@ input[type="button"] {
 }
 
 .headers{
-    font-family: var(--font-family-primary);
-    font-weight: bold;
-    background: var(--color-headers);
-    color: var(--color-white);
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-right: 20px;
-    padding-left: 20px;
-    font-size: 32px;
-    border-style: solid;
-    border-color: var(--color-white);
-    border-radius: 50px;
-    border-width: 3px;
+  font-family: var(--font-family-primary);
+  font-size: 24px;
+  font-weight: bold;
+  background: var(--color-headers);
+  color: var(--color-white) ;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 20px;
+  padding-left: 20px;
+  margin-left: 35px;
+  margin-top: 5px;
+  border-radius: 50px;
+  opacity: 1;
+  width: auto;
+  position:absolute;
+  display: inline-block;
+  z-index: 3;
 }
 
 .text {
@@ -88,48 +223,171 @@ input[type="button"] {
   background: var(--color-speech);
   padding: 20px;
   width: 1820px;
+  border: 4px solid var(--color-border);
+  border-radius: 50px;
   text-align: center;
+}
+
+#dialog{
+  position: absolute;
+  text-align: center;
+  width:1045px;
+  margin-left: 875px;
+  margin-top:610px;
+}
+
+.overlay{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1920px;
+  height: 1080px;
+  background-color: rgba(0,0,0,0.5); /*dim the background*/
+  z-index:10;
+}
+
+
+/* Spacing and Proportions */
+#avatar {
+  display:inline-block;
+  width:120px;
+  margin-top:10px;
+  margin-left:10px;
+  margin-bottom:10px;
+  align:left;
+  z-index:1;
+}
+
+img.viewer {
+  width: 800px;
+  opacity: 1;
+  margin-left: 50px;
+  margin-top: 25px;
+  display: inline-block;
+  position: absolute;
+  z-index: 2;
+}
+
+.checks{
+  display: inline-block;
+  position: absolute;
+  z-index: 3;
+}
+
+#prompt {
+  width: 960px;
+  display: inline-block;
+  position: absolute;
+  top:300px;
+  left:480px;
+  z-index:6;
 }
 
 .topics {
-  margin: 30px;
+  margin: 40px;
   width: 1500px;
 }
 
-.speech-bubble {
-  font-size: 32px;
+.image-container{
+  background-color: var(--color-white);
+  display:inline-block;
+  width: 850px;
+  height: 850px;
+  box-shadow: 10px 10px 5px var(--color-shadows);
+  opacity: 0.75;
+  margin-left: 25px;
+  position: absolute;
+  z-index: 1;
+  margin-top:-5px
+}
+
+
+/* Speech Bubble Styling */
+
+#speech-bubble {
+  font-size: 24px;
   font-family: var(--font-family-primary);
   color: var(--color-text);
-  width: 980px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  width: 945px;
+  padding-top: 30px;
+  padding-bottom: 30px;
   padding-right: 20px;
   padding-left:20px;
   position: relative;
+  left: 25px;
+  top: 50px;
   text-align: center;
   background-color: var(--color-speech);
-  border: 3px solid var(--color-border);
+  border: 4px solid var(--color-border);
   border-radius: 50px;
 }
 
-.speech-bubble:before {
+#speech-bubble:before {
   content: ' ';
   position: absolute;
   width: 0;
   height: 0;
-  left: 765px;
   top: 100%;
-  border: 15px solid;
+  border: 20px solid;
   border-color: var(--color-border) transparent transparent transparent;
 }
 
-.speech-bubble:after {
+#speech-bubble:after {
   content: ' ';
   position: absolute;
   width: 0;
   height: 0;
-  left: 768px;
-  top: 98%;
-  border: 12px solid;
+  top: 97%;
+  border: 16px solid;
   border-color: var(--color-speech) transparent transparent transparent;
+}
+
+.player1:before{
+  left: 675px;
+}
+.player1:after{
+  left: 679px;
+}
+
+.player2:before{
+  left: 520px;
+}
+.player2:after{
+  left: 524px;
+}
+
+.player3:before{
+  left: 365px;
+}
+.player3:after{
+  left: 369px;
+}
+
+.player4:before{
+  left: 210px;
+}
+.player4:after{
+  left:214px;
+}
+
+.player5:before{
+  left:50px;
+}
+.player5:after{
+  left:54px;
+}
+
+/* Animation Styling */
+.pulse{
+  border-radius: 30px;
+  animation: shadow-pulse 1s infinite;
+}
+@keyframes shadow-pulse
+{
+  0% {
+    box-shadow: 0 0 0 0px rgba(230, 230, 230, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 0 35px rgba(0, 0, 0, 0);
+  }
 }

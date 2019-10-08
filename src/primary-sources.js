@@ -4,7 +4,7 @@ var clickCount = 0;
 
 class PrimarySourcesScene extends Scene {
   constructor(){
-    super('primary-sources')
+    super('primary-sources');
   }
 
   init(data){
@@ -17,25 +17,18 @@ class PrimarySourcesScene extends Scene {
     this.load.css('styles', '../../assets/styles/main.css');
   }
 
-
   create(){
-    const stage = this.add.image(0, 0, 'stage').setOrigin(0, 0)
+    const stage = this.add.image(0, 0, 'stage').setOrigin(0, 0);
     this.title = this.add.dom(960, 40, 'div', null, 'What are Primary Sources?').setClassName('title').setOrigin(.5, 0);
-    this.dialog = this.add.dom(960, 150, 'div', null, '').setClassName('text').setOrigin(.5, 0);
+    this.dialog = this.add.dom(960, 200, 'div', null, '').setClassName('text').setOrigin(.5, 0);
+    this.updateDialog(clickCount);
     this.createContinueButton();
-    this.updateDialog(clickCount);
-  }
-
-  update(){
-    this.updateDialog(clickCount);
   }
 
   updateDialog(clickCount){
     if (clickCount == 0)
     {
-      const content = ["Remember, you’re going to be looking at primary sources—the raw materials of history. Primary sources are original documents and objects created during the time period you're studying. They're different from secondary sources, which are accounts or interpretations of historical events created by someone, usually after the fact, without first-hand experience. So, a movie about the first moon landing or a history textbook about ancient Greece would be secondary sources.",
-      "", "Here are just a few examples of primary sources. What do you notice about them?"];
-      this.dialog.setText(content);
+      this.dialog.setText("Remember, you’re going to be looking at primary sources—the raw materials of history. Primary sources are original documents and objects created during the time period you're studying. They're different from secondary sources, which are accounts or interpretations of historical events created by someone, usually after the fact, without first-hand experience. So, a movie about the first moon landing or a history textbook about ancient Greece would be secondary sources. \n \n Here are just a few examples of primary sources. What do you notice about them?");
     }
     else if (clickCount == 1)
     {
@@ -66,12 +59,12 @@ class PrimarySourcesScene extends Scene {
       }
     }
   }
-  
+
   createContinueButton(){
     const continueButton =  this.add.dom(960, 900).createFromCache('continue')
       .addListener('click')
-      .on('click', function (event) {
-        ++clickCount;
+      .on('click', () => {
+        this.updateDialog(++clickCount);
       });
    }
 }
