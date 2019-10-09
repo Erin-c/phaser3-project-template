@@ -23,6 +23,7 @@ const config = {
   type: Phaser.AUTO,
   width: 1920,
   height: 1080,
+  parent: "parentDiv",
   scale: {
     parent: 'phaser',
     mode: Phaser.Scale.FIT,
