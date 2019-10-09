@@ -50,10 +50,7 @@ class GetSortedScene extends Scene {
       $("#speech-bubble").html(content.tutorials[keys[tutorialItem]].claim).addClass("player3");
     }
     else if(count < 9 && count % 2 == 1){
-      $("#feedback").show().html(content.tutorials[keys[tutorialItem]].feedback);
-      if(tutorialItem==2){
-        $("#feedback").css("margin-top","15px")
-      }
+      $("#feedback").show().html(content.tutorials[keys[tutorialItem]].feedback).css("margin-top","15px");
       $(content.tutorials[keys[tutorialItem]].answer).addClass("pulse");
     }
     else if(count < 9 && count % 2 == 0){
@@ -74,18 +71,21 @@ class GetSortedScene extends Scene {
     else if(count == 10){
       this.startGame();
     }
-    else{
+    else if(count == 11){
       $("#game").hide();
-      $(".buttons").removeClass("pulse");
-      if (game.returnScore() > 7){
+      $(".buttons").removeClass("pulse-continue");
+      if (game.returnScore() > 700){
         $("#prompt").show().html("Excellent work! That got you " + game.returnScore() + " points!");
       }
-      else if (game.returnScore() > 4 && game.returnScore() < 8){
+      else if (game.returnScore() > 400 && game.returnScore() < 800){
         $("#prompt").show().html("OK -- you earned " + game.returnScore() + " points!");
       }
       else{
         $("#prompt").show().html(game.returnScore() + " points. You'll have to work on your primary source analysis skills if you're going to make it in show business.");
       }
+    }
+    else{
+      this.scene.start('story');
     }
   }
 
@@ -107,7 +107,7 @@ class GetSortedScene extends Scene {
         var feedback = Math.floor(Math.random() * content.correctFeedback.length)
         $("#feedback").html(content.correctFeedback[feedback]);
         $("#game").prepend(content.claims[keys[item]].check);
-        game.updateScore();
+        game.updateScore(100);
       }
       // show feedback if incorrect
       else{
@@ -130,7 +130,7 @@ class GetSortedScene extends Scene {
       }
       //end game
       else{
-        $(".buttons").attr("disabled", false).addClass("pulse");
+        $(".buttons").attr("disabled", false).addClass("pulse-continue");
         $("#observation, #reflection, #question").unbind("click");
       }
     });

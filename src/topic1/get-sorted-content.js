@@ -5,14 +5,14 @@ export var tutorials = {
   tutorial1:{
      speaker:"<span class = 'name'>Ruthie</span><span class = 'separator'> / </span><span class = 'role'>Costume Designer</span>",
      claim:"The girls in the photo are wearing dresses!",
-     feedback:"See how the costume designer, Ruthie, identifies and notes details? She simply notes what she sees. That’s an <strong>Observation.</strong>",
+     feedback:"See how the costume designer, Ruthie, identifies and notes details? She simply notes what she sees. <br> That’s an <strong>Observation.</strong>",
      answer:"#observation",
      check:"<img src='../assets/characters/2.png' alt='check' class='checks' style='margin-left: 995px; margin-top: 300px;'>"
   },
   tutorial2:{
     speaker:"<span class = 'name'>JVan</span><span class = 'separator'> / </span> <span class = 'role'>Set Designer</span>",
     claim:"Look at all those children! I think that they’re going to school.",
-    feedback:"Set designer JVan is thinking a little more deeply and generating a hypothesis about the source. File that under <strong>Reflection</strong>!",
+    feedback:"Set designer JVan is thinking a little more deeply and generating a hypothesis about the source. <br> File that under <strong>Reflection</strong>!",
     answer:"#reflection",
     check:"<img src='../assets/characters/2.png' alt='check' class='checks' style='margin-left: 1335px; margin-top: 300px;'>"
   },

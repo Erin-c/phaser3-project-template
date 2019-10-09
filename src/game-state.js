@@ -1,7 +1,7 @@
 var score = 0;
 
-export function updateScore(){
-  ++score;
+export function updateScore(amount){
+  score += amount;
 }
 
 export function returnScore(){

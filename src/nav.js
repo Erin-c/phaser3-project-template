@@ -7,13 +7,12 @@ class NavScene extends Scene {
   }
 
   preload(){
-    this.load.html('score', '../assets/html/score.html');
+    this.load.html('nav', '../assets/html/nav.html');
     this.load.css('styles', '../assets/styles/main.css');
   }
 
   create(){
-    this.score = this.add.dom(1860, 30).createFromCache('score').setOrigin(1 , 0);
-
+    this.nav = this.add.dom(0, 0).createFromCache('nav').setOrigin(0);
   }
   update(){
     $(".score").html("Score: " + game.returnScore());
