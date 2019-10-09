@@ -1,6 +1,6 @@
 import Phaser from 'phaser'
 // source-it as html
-import SourceScene from './source'
+import GetSortedScene from './get-sorted'
 import NavScene from './nav'
 import TitleScene from './title'
 import IntroScene from './intro'
@@ -38,9 +38,10 @@ const config = {
         debug: false
         }
   },
-  scene: [ TitleScene, NavScene, IntroScene, TopicSelectionScene,
+  scene: [ GetSortedScene, TitleScene, NavScene, IntroScene, TopicSelectionScene,
     Topic1Scene, Topic2Scene, Topic3Scene, Topic4Scene, Topic5Scene,
-    Topic1IntroAnimationScene, PrimarySourcesScene, Topic1MakingTheMusicalScene, SourceScene
+    Topic1IntroAnimationScene, PrimarySourcesScene, Topic1MakingTheMusicalScene,
+    // GetSortedScene
   ]
 };
 

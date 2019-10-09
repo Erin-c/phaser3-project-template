@@ -1,26 +1,26 @@
 import { Scene } from 'phaser';
-import * as content from './topic1/source-it-content';
+import * as content from './topic1/get-sorted-content';
 import * as game from './game-state'
 
 var count = 0;
 var item = 0;
 var tutorialItem = 0;
 
-class SourceScene extends Scene {
+class GetSortedScene extends Scene {
   constructor(){
-    super('source');
+    super('sorted');
   }
 
   preload(){
     this.load.image('stage', '../assets/backgrounds/stage.png');
-    this.load.html('sourceTemplate', '../assets/html/source-it.html');
+    this.load.html('sortItTemplate', '../assets/html/get-sorted.html');
     this.load.html('continue', '../assets/html/continue.html');
     this.load.css('styles', '../assets/styles/main.css');
   }
 
   create(){
     const stage = this.add.image(0, 0, 'stage').setOrigin(0);
-    this.template = this.add.dom(0, 0).createFromCache('sourceTemplate').setOrigin(0);
+    this.template = this.add.dom(0, 0).createFromCache('sortItTemplate').setOrigin(0);
     this.createContinueButton();
     $("#game").hide();
     $("#prompt").show();
@@ -137,4 +137,4 @@ class SourceScene extends Scene {
   }
 }
 
-export default SourceScene
+export default GetSortedScene
