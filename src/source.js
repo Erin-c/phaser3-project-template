@@ -51,6 +51,9 @@ class SourceScene extends Scene {
     }
     else if(count < 9 && count % 2 == 1){
       $("#feedback").show().html(content.tutorials[keys[tutorialItem]].feedback);
+      if(tutorialItem==2){
+        $("#feedback").css("margin-top","15px")
+      }
       $(content.tutorials[keys[tutorialItem]].answer).addClass("pulse");
     }
     else if(count < 9 && count % 2 == 0){
@@ -73,12 +76,22 @@ class SourceScene extends Scene {
     }
     else{
       $("#game").hide();
-      $("#prompt").show().html("You got " + game.returnScore() + " points!");
+      $(".buttons").removeClass("pulse");
+      if (game.returnScore() > 7){
+        $("#prompt").show().html("Excellent work! That got you " + game.returnScore() + " points!");
+      }
+      else if (game.returnScore() > 4 && game.returnScore() < 8){
+        $("#prompt").show().html("OK -- you earned " + game.returnScore() + " points!");
+      }
+      else{
+        $("#prompt").show().html(game.returnScore() + " points. You'll have to work on your primary source analysis skills if you're going to make it in show business.");
+      }
     }
   }
 
   startGame(){
     var keys = Object.keys(content.claims);
+    $(".container").addClass("pulse");
     // remove instructions and disable continue button
     $("#prompt").hide();
     $(".buttons").attr("disabled", true);
@@ -87,11 +100,13 @@ class SourceScene extends Scene {
     $("#speech-bubble").show().html(content.claims[keys[item]].claim);
     // listen for user click
     $("#observation, #reflection, #question").click(function(){
+      $(".container").removeClass("pulse");
       $("#feedback").show().css({"margin-top":"30px"})
       // show feedback if correct
       if (event.target.id == content.claims[keys[item]].answer){
         var feedback = Math.floor(Math.random() * content.correctFeedback.length)
         $("#feedback").html(content.correctFeedback[feedback]);
+        $("#game").prepend(content.claims[keys[item]].check);
         game.updateScore();
       }
       // show feedback if incorrect
@@ -105,6 +120,7 @@ class SourceScene extends Scene {
         else{
           $("#feedback").html(content.incorrectFeedback.question);
         }
+          $("#game").prepend(content.claims[keys[item]].check);
       }
       // move on to next
       if(item < 9){
@@ -114,7 +130,7 @@ class SourceScene extends Scene {
       }
       //end game
       else{
-        $(".buttons").attr("disabled", false);
+        $(".buttons").attr("disabled", false).addClass("pulse");
         $("#observation, #reflection, #question").unbind("click");
       }
     });

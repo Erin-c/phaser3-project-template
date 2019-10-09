@@ -38,10 +38,9 @@ const config = {
         debug: false
         }
   },
-  scene: [ SourceScene, NavScene, TitleScene, IntroScene, TopicSelectionScene,
+  scene: [ TitleScene, NavScene, IntroScene, TopicSelectionScene,
     Topic1Scene, Topic2Scene, Topic3Scene, Topic4Scene, Topic5Scene,
-    Topic1IntroAnimationScene, PrimarySourcesScene, Topic1MakingTheMusicalScene,
-    // Topic1BackstageConfusionScene
+    Topic1IntroAnimationScene, PrimarySourcesScene, Topic1MakingTheMusicalScene, SourceScene
   ]
 };
 

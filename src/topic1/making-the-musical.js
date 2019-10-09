@@ -20,7 +20,7 @@ class Topic1MakingTheMusicalScene extends Scene {
     this.melody = this.add.dom(960, 500, 'div', 'width:100%; text-align: center;', '').setHTML('<input type="image" src="../../assets/characters/melody.png" alt="Melody">').setOrigin(0.5, 0).setScale(0.75)
     .addListener('click')
     .on('click', () => {
-      this.scene.start('topic1-source-it-tutorial', {count:0});
+      this.scene.start('source', {count:0});
     });
   }
 
