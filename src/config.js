@@ -25,7 +25,7 @@ const config = {
   height: 1080,
   parent: "parentDiv",
   scale: {
-    parent: 'phaser',
+    parent: 'parentDiv',
     mode: Phaser.Scale.FIT,
     autoCenter: Phaser.Scale.CENTER_BOTH,
    },
