@@ -1,0 +1,59 @@
+<div style="position: relative; height: 1080px; width:1920px">
+
+  <div id="prompt">
+    Fay and Manuel have been hard at work on the musical’s book and lyrics. Your job is to check their ideas against the primary sources and decide if they make the cut.
+  </div>
+  <div id="writers-room-characters">
+      <img src="../assets/characters/NPC_Fay0001.png" alt="Fay" class="character">
+      <img src="../assets/characters/NPC_Manuel0001.png" alt="Manuel" class="character">
+  </div>
+  <div id="desk">
+    <img src="../assets/backgrounds/writersroom_deskonly.png" alt="desk">
+  </div>
+
+  <div id="game">
+    <!-- melody -->
+    <img src="../assets/characters/1.png" alt="Melody" id="avatar">
+
+    <!-- feedback -->
+    <div id="feedback" class="one-line">
+      here is some feedback
+    </div>
+
+    <!-- primary source viewer -->
+    <div id=source>
+      <button id="close" type="button" class="close-icon"></button>
+      <div id="title" class="source-title story">
+        SOURCE
+      </div>
+      <div class="source-container story">
+
+      </div>
+    </div>
+
+    <!-- select source -->
+    <input id ="folder1" class="folder story" type="image" src="../assets/components/folder_source.png" aria-label="source1"/>
+    <input id ="folder2" class="folder story" type="image" src="../assets/components/folder_source.png" aria-label="source2"/>
+    <input id ="folder3" class="folder story" type="image" src="../assets/components/folder_source.png" aria-label="source3"/>
+
+    <div id="speaker-container" class="story">
+      <div id="speaker" class="story">
+        <span class = 'name'></span><span class = 'separator'> / </span><span class = 'role'>Writer</span>
+      </div>
+    </div>
+
+    <div id="speech-bubble" class="story">
+    </div>
+    <div class="button-container">
+      <button id="goOn" type="button" class="buttons">Go on ...</button>
+      <button id="next" type="button" class="buttons" style="display:none">Go on ...</button>
+      <button id="neverMind" type="button" class="buttons" style="display:none">Never mind</button>
+      <button id="backItUp" type="button" class="buttons"><img src="../assets/components/hand-solid.png" alt="Stop" style="height:28px"> Back it up!</button>
+    </div>
+    <div>
+      <button id="rejectPitch" type="button" class="buttons" style="display:none">Reject Pitch</button>
+    </div>
+
+  </div>
+
+</div>

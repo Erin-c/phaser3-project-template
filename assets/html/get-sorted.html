@@ -1,47 +1,79 @@
-<div id='prompt' class='text'>
-    Here we are backstage, where our creative crew is already hard at work. It looks like they’ve found their first primary source, but there seems to be some confusion about what they should do with it.
-</div>
+<div>
+  <!-- Instructions -->
+  <div id="prompt">
+      Here we are backstage, where our creative crew is already hard at work. It looks like they’ve found their first primary source, but there seems to be some confusion about what they should do with it.
+  </div>
 
-<div id='game'>
-  <!-- melody -->
-  <img src="../../assets/characters/1.png" alt="Melody" id="avatar">
-  <!-- feedback -->
-  <div id ='feedback'>
+  <!-- Game -->
+  <div id="game">
+
+    <!-- Melody -->
+    <img src="../../assets/characters/1.png" alt="Melody" id="avatar">
+    <!-- Feedback -->
+    <div id ="feedback" class="one-line">
+    </div>
+
+
+    <div>
+      <!-- Primary Source Viewer -->
+      <div class="source-title sorted" id="title">
+        SOURCE
+      </div>
+      <img id ="primary-source" class="sorted"/>
+      <div class="source-container sorted">
+      </div>
+
+      <!-- ORQ containers -->
+      <input type="button" name="observationButton" id="observation" class="container sorted o" aria-label="classify as observation">
+      <div class="orq sorted o">
+        Observation
+      </div>
+      <input type="button" name="reflectionButton" id="reflection" class="container sorted r" aria-label="classify as reflection">
+      <div class="orq sorted r" >
+        Reflection
+      </div>
+      <input type="button" name="questionButton" id="question" class="container sorted q" aria-label="classify as question">
+      <div class="orq sorted q">
+        Question
+      </div>
+    </div>
+
+    <!-- Characters and Dialog -->
+    <div id="speaker-container" class="sorted">
+      <div id="speaker" class="sorted">
+      </div>
+    </div>
+
+    <div id="speech-bubble" class="tail sorted">
+    </div>
+    <div class= "character-container">
+      <img id="elle" src = "../../assets/characters/NPC_Elle0001.png" alt="Elle"/>
+      <img id="jvan" src = "../../assets/characters/NPC_JVan0001.png" alt="JVan"/>
+      <img id="banks" src = "../../assets/characters/NPC_Banks0001.png" alt="Banks"/>
+      <img id="ruthie" src = "../../assets/characters/NPC_Ruthie0001.png" alt="Ruthie"/>
+      <img id="manuel" src = "../../assets/characters/NPC_Manuel0001.png" alt="Manuel"/>
+      <img id="fay" src = "../../assets/characters/NPC_Fay0001.png" alt="Fay"/>
+    </div>
   </div>
-  <div>
-    <div class='headers' id='title'>
-      SOURCE
-    </div>
-    <img id ='primary-source' class='viewer'/>
-    <!-- image container -->
-    <div class='image-container'>
-    </div>
-    <!-- orq containers -->
-    <input type="button" name="observationButton" id="observation" class="container o" aria-label="classify as observation">
-    <div class='orq o'>
-      Observation
-    </div>
-    <input type="button" name="reflectionButton" id="reflection" class="container r" aria-label="classify as reflection">
-    <div class='orq r'>
-      Reflection
-    </div>
-    <input type="button" name="questionButton" id="question" class="container q" aria-label="classify as question">
-    <div class='orq q'>
-      Question
-    </div>
+
+  <!-- Final Feedback Page -->
+  <div id="orq-review" style="display: none;">
+    <table>
+      <tr align="center">
+        <th style="background: #013366;">Observation</th>
+        <th style="background: #03713F;">Reflection</th>
+        <th style="background: #660F3A;">Question</th>
+      </tr>
+      <tr id="row">
+        <td class="col1"> </td>
+        <td class="col2"> </td>
+        <td class="col3"> </td>
+      </tr>
+    </table>
   </div>
-  <div id='speaker'>
-  </div>
-  <div id='dialog'>
-    <div id='speech-bubble'>
+  <div id="melody" class="final" style="display: none;">
+    <img src="../../assets/characters/NPC_Melody0003.png" alt="Melody" style="width:250px;"/>
+    <div class="spot">
     </div>
-  </div>
-  <!-- character container -->
-  <div class= 'character-container'>
-    <img src = '../../assets/characters/joss.png' alt='Joss' style="width:9%;"/>
-    <img src = '../../assets/characters/fay.png' alt='Fay' style="width:9%;"/>
-    <img src = '../../assets/characters/melody.png' alt='Melody' style="width:9%;"/>
-    <img src = '../../assets/characters/joss.png' alt='Joss' style="width:9%;"/>
-    <img src = '../../assets/characters/fay.png' alt='Fay' style="width:9%;"/>
   </div>
 </div>
